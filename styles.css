@@ -8,7 +8,6 @@ input {
 :root {
     --brown: '#A77979';
     --main-bg-color: #F7F7F7;
-    /* --accent-color: rgb(109, 152, 134); */
     --accent-color: white;
     --dark-accent-color: #393E46;
     --light-accent-color: rgb(131 188 166);
@@ -37,7 +36,8 @@ a:active {
     color: var(--light-accent-color)
 }
 
-h2 {
+.form-container > h2 {
+    display: block;
     margin: 0;
     padding: 0;
     line-height: normal;
@@ -52,12 +52,14 @@ body {
     display: relative;
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: var(--main-bg-color);
     box-sizing: border-box;
     font-family: 'Source Sans Pro';
     font-size: 1.2rem;
     font-weight: 200;
+
 }
+
 
 .flex-container {
     display: flex;
@@ -65,42 +67,42 @@ body {
 }
 
 .left-container {
-    background-color: aquamarine;
     background-image: url(splash.jpeg);
-    background-repeat:repeat;
+    background-repeat: no-repeat;
     background-size: cover;
-    /* background-position-y: bottom; */
-    /* width: 35vw; */
-    min-width: 400px;
+    background-position-y: center;
     height: 100vh;
-    flex: 2 1 800px;
+    flex: 1 2 100%;
+    min-width: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    /* position:fixed; */
 }
 .right-container {
+    box-sizing: border-box;
     background-color: var(--main-bg-color);
-    /* width: 65vw; */
-    height: auto;
+    height: 100vh;
     display: flex;
+    /* justify-content: center; */
     flex-direction: column;
-    justify-content: center;
     padding-top: 30px;
+    flex: 2 0.5 300;
+    overflow-y: scroll;
 }
 .splash-credit {
-    /* width: 100%; */
+    position: sticky;
+    top: 90%;
     color: white;
     font-size: 15px;
     text-align: center;
-    margin: 20px;
+    margin-bottom: 20px;
     opacity: 80%;
 }
 .logo-container {
-    /* background-color: var(--logo-container); */
     margin-top: 100px;
     width: 100%;
-    min-width: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,14 +111,14 @@ body {
 
 .logo{
     max-width: 100px;
-    width: calc(60px + 1vw);
+    width: calc(50px + 2vw);
     margin-right: 20px;
     filter: invert(100%);
 }
 
 .logo-text{
     color: white;
-    font-size: calc(2em + 1vw);
+    font-size: calc(2em + 2vw);
     font-family: 'Satisfy';
     text-align: center;
     line-height: 50px;
@@ -124,8 +126,9 @@ body {
 }
 
 .welcome-text {
-    padding: 0px 40px;
-    font-size: 30px;
+    margin: 30px 0;
+    padding: 0px 20px 0 40px;
+    font-size: 25px;
 }
 
 .form-container {
@@ -135,21 +138,22 @@ body {
 }
 
 form {
-    /* max-width: 800px; */
-
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .input-entry {
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 2 2 300px;
     margin-right: 20px;
     margin-top: 20px;
-    /* float: left; */
-    max-width: 400px;
-    width: 100%;
+    min-width: 150px;
 }
 
 .input-entry > label {
-    display: block;
+    display: inline-block;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.8rem;
@@ -189,7 +193,6 @@ form {
     color: var(--accent-text-color);
     padding: 15px 70px;
     background-color: var(--dark-accent-color);
-    /* box-shadow: 0px 5px 5px rgba(0,0,0,0.2); */
     cursor:pointer;
     transition: 0.2s;
 }
@@ -207,8 +210,30 @@ form {
 .flex-container {
     flex-direction: column;
 }
-
-.left-container {
-    flex: 1 1 auto;
+.welcome-text {
+    margin-top: 0px;
 }
+
+.logo-container{
+    margin: 50px 0px;
+}
+.logo {
+    width: 60px;
+}
+.logo-text{
+    font-size: 50px;
+    padding-top:10px;
+}
+
+.splash-credit {
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    font-size: 10px;
+}
+
+.right-container {
+    overflow: unset;
+}
+
 }
