@@ -142,7 +142,12 @@ form {
     flex-wrap: wrap;
 }
 
+input::placeholder{
+    color:#bababa;
+}
+
 .input-entry {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -180,6 +185,15 @@ form {
     border: 2px var(--dark-accent-color) solid;
 }
 
+.form-container > p {
+    margin-bottom: 0px;
+    padding: 0px;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 1rem;
+
+}
+
 .form-submit-container {
     padding: 40px;
 }
@@ -205,6 +219,53 @@ form {
     background-color: var(--light-accent-color);
     box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
+
+.pw-bubble {
+    max-height: 0px;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+}
+
+input#pwd:focus + .pw-bubble {
+    max-height: 70px;
+    transition: max-height 0.3s ease-in;
+}
+
+.pw-bubble > ul {
+    padding: 10px;
+    margin: 0;
+    font-size: 1rem;
+    color: #bababa;
+    list-style: none;
+}
+
+input#pwd{
+    /* background-image: url(/img/tick-red-icon.png); */
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: bottom 50% right 7px;
+}
+
+.pw-bubble > ul > li::before{
+    content: ' ';
+    display: inline-block;
+    background-image: url(/img/cancel-icon.png);
+    background-size:contain;
+    height: 12px;
+    width: 12px;
+    margin-right: 10px;
+    margin-left: 0;
+    opacity: 30%;
+}
+
+/* Validation Styling */
+.required::after{
+    content: "*";
+    color: #FD8A8A;
+}
+
+
+/* Mobile-Styling */
 
 @media only screen and (max-width: 700px) {
 .flex-container {

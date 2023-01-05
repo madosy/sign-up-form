@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="/script.js" defer></script>
 </head>
 <body>
     <div class="flex-container">
@@ -23,35 +24,43 @@
             </div>
             <div class="form-container">
                 <h2 class="form-title">Let's do this!</h2>
-                <form action="">
+                <form action="http://httpbin.org/post" method="post" id="signup-form">
                     <div class="input-entry">
-                        <label for="fname">First Name</label>
-                        <input type="text" name="fname" id="fname">
+                        <label class="required" for="fname">First Name</label>
+                        <input type="text" name="fname" id="fname" minlength="2" pattern="[A-Za-z]+'{0,1}-{0,1}[A-Za-z]+" required title="Characters A to Z with minimum length of 2. Dash and apostrophe allowed.">
                     </div>
                     <div class="input-entry">
                         <label for="lname">Last Name</label>
-                        <input type="text" id="lname" name="lname">
+                        <input type="text" id="lname" name="lname" minlength="2" pattern="[A-Za-z]+'{0,1}-{0,1}[A-Za-z]+" title="Characters A to Z with minimum length of 2. Dash and apostrophe allowed.">
                     </div>
                     <div class="input-entry">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email">
+                        <label class="required" for="email">Email</label>
+                        <input type="email" name="email" id="email" required>
                     </div>
                     <div class="input-entry">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" name="phone" id="phone">
+                        <input type="tel" name="phone" id="phone" pattern="^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" placeholder="ex. 123-456-7890" title="ex. 123-456-7890 or (123)456-7890">
                     </div>
                     <div class="input-entry">
-                        <label for="pwd">Password</label>
-                        <input type="password" name="pwd" id="pwd">
+                        <label class="required" for="pwd">Password</label>
+                        <input type="password" name="pwd" id="pwd" required>
+                        <div class="pw-bubble">
+                            <ul>
+                                <li>Has at least 8 characters.</li>
+                                <li>Includes a capital letter</li>
+                                <li>Includes a number</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="input-entry">
-                        <label for="pwd_cnf">Confirm Password</label>
-                        <input type="password" name="pwd_cnf" id="pwd_cnf">
+                        <label class="required" for="pwd_cnf">Confirm Password</label>
+                        <input type="password" name="pwd_cnf" id="pwd_cnf" required>
                     </div>
                 </form>
+                <p><span class="required"></span> indicates required fields</p>
             </div>
             <div class="form-submit-container">
-                <button id="create_account" class="create_account_button">Create Account</button>
+                <button form="signup-form" type="submit" id="create_account" class="create_account_button">Create Account</button>
                 <p>
                     Already have an account? <a href="login.html">Login</a>
                 </p>
