@@ -220,7 +220,17 @@ input::placeholder{
     box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-.pw-bubble {
+
+.pw-cnf-bubble.viewed-by-user{
+    max-height: 30px;
+    display: inline-block;
+    color:#FD8A8A;
+    font-size: 1rem;
+}
+
+.pw-bubble,
+.pw-cnf-bubble,
+.pw-cnf-bubble.viewed-by-user.hide{
     max-height: 0px;
     transition: max-height 0.3s ease-out;
     overflow: hidden;
@@ -231,6 +241,7 @@ input#pwd:focus + .pw-bubble {
     transition: max-height 0.3s ease-in;
 }
 
+
 .pw-bubble > ul {
     padding: 10px;
     margin: 0;
@@ -239,7 +250,7 @@ input#pwd:focus + .pw-bubble {
     list-style: none;
 }
 
-input#pwd{
+input{
     /* background-image: url(/img/tick-red-icon.png); */
     background-size: 10px;
     background-repeat: no-repeat;
@@ -247,17 +258,18 @@ input#pwd{
 }
 
 input.viewed-by-user{
-    background-image: url(/img/tick-red-icon.png);
+    background-image: url(./img/tick-red-icon.png);
 }
 
-input#pwd.valid{
-    background-image: url(/img/tick-green-icon.png);
+
+input.valid{
+    background-image: url(./img/tick-green-icon.png);
 }
 
 li.requirement::before{
     content: ' ';
     display: inline-block;
-    background-image: url(/img/cancel-icon.png);
+    background-image: url(./img/cancel-icon.png);
     background-size:contain;
     height: 12px;
     width: 12px;
@@ -267,7 +279,7 @@ li.requirement::before{
 }
 
 li.requirement.valid::before{
-    background-image: url(/img/checked-icon.png);
+    background-image: url(./img/checked-icon.png);
     opacity: 80%;
 }
 
