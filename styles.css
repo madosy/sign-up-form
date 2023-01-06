@@ -246,7 +246,15 @@ input#pwd{
     background-position: bottom 50% right 7px;
 }
 
-.pw-bubble > ul > li::before{
+input.viewed-by-user{
+    background-image: url(/img/tick-red-icon.png);
+}
+
+input#pwd.valid{
+    background-image: url(/img/tick-green-icon.png);
+}
+
+li.requirement::before{
     content: ' ';
     display: inline-block;
     background-image: url(/img/cancel-icon.png);
@@ -256,6 +264,11 @@ input#pwd{
     margin-right: 10px;
     margin-left: 0;
     opacity: 30%;
+}
+
+li.requirement.valid::before{
+    background-image: url(/img/checked-icon.png);
+    opacity: 80%;
 }
 
 /* Validation Styling */
