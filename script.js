@@ -7,7 +7,6 @@ const pwConfBubble = document.querySelector('div.pw-cnf-bubble')
 const charReq = document.querySelector('li.char');
 const capReq = document.querySelector('li.cap');
 const numReq = document.querySelector('li.num');
-let passValidity = false;
 
 //input confirmation icon appears only after focusout
 pwField.addEventListener('focusout', () => {
@@ -34,16 +33,16 @@ pwConfField.addEventListener('input',() => {
 
 pwField.addEventListener('input',() => {
     const enteredValue = pwField.value;
-    console.log(enteredValue)
     const charValidity = charCountCheck(enteredValue);
     const capValidity = capCheck(enteredValue);
     const numValidity = numCheck(enteredValue);
 
     if (charValidity && capValidity && numValidity) {
         pwField.classList.add('valid');
-        passValidity = true;
+        pwField.setAttribute('pattern',pwField.value)
     } else {
         pwField.classList.remove('valid');
+        pwField.setAttribute('pattern',`${pwField.value}!`)
     }
 })
 
@@ -82,6 +81,8 @@ function numCheck(text) {
 document.addEventListener('input', () => {
     const password = pwField.value;
     const confirmation = pwConfField.value;
+    pwConfField.setAttribute('pattern',password)
+    console.log(pwConfField.pattern)
     if(password == confirmation && password.length > 0) {
         pwConfField.classList.add('valid')
         pwConfBubble.classList.add('hide')
@@ -92,5 +93,3 @@ document.addEventListener('input', () => {
         pwConfBubble.classList.remove('hide')
     }
 })
-
-
